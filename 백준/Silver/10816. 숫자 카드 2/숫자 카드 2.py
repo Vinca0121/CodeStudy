@@ -1,18 +1,22 @@
 import sys
-
 input = sys.stdin.readline
 
-a = int(input())
+my_n = int(input())
+my_list = list(map(int, input().split()))
+
+ans_n = int(input())
+ans_list = list(map(int, input().split()))
+
 dic = {}
-li = list(map(int, input().split()))
-b = int(input())
-li1 = list(map(int, input().split()))
-for i in li1:
-    dic[i] = 0
 
-for i in li:
-    if i in dic:
+for i in my_list:
+    if i in dic :
         dic[i] += 1
+    else :
+        dic[i] = 1
 
-for i in li1:
-    print(dic[i], end=' ')
+for i in ans_list:
+    if i in dic :
+        print(dic[i], end=" ")
+    else:
+        print(0, end=" ")
