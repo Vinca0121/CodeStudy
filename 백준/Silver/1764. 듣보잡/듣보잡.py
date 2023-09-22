@@ -4,10 +4,10 @@ ans_list = []
 a ,b = map(int, input().split())
 
 for _ in range(a):
-    a_set.add(input().strip())
+    a_set.add(input())
 
 for _ in range(b):
-    name = input().strip()
+    name = input()
     if name in a_set:
         ans_list.append(name)
 
@@ -15,3 +15,4 @@ ans_list.sort()
 print(len(ans_list))
 for n in ans_list:
     print(n)
+
