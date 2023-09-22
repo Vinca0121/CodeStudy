@@ -1,13 +1,15 @@
+import sys
+input = sys.stdin.readline
 a_set = set()
 ans_list = []
 
 a ,b = map(int, input().split())
 
 for _ in range(a):
-    a_set.add(input())
+    a_set.add(input().rstrip())
 
 for _ in range(b):
-    name = input()
+    name = input().rstrip()
     if name in a_set:
         ans_list.append(name)
 
