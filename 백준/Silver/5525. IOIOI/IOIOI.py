@@ -1,19 +1,19 @@
-o_size = int(input())
-length = int(input())
-str = input()
+N = int(input())
+M = int(input())
+S = input()
 
-
-target_ioi = "I"
-for i in range(o_size):
-    target_ioi += "O"
-    target_ioi += "I"
-
+cnt = 0
 ans = 0
-target_len = len(target_ioi)
-for i in range(len(str)):
-    if str[i:target_len+i] == target_ioi:
-        ans += 1
+j = 1
+while j < M - 1:
+    if S[j-1] == 'I' and S[j] == 'O' and S[j+1] == 'I':
+        cnt += 1
+        if cnt == N:
+            cnt -= 1
+            ans += 1
+        j += 1
+    else:
+        cnt = 0
+    j += 1
 
 print(ans)
-
-
