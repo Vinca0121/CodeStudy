@@ -1,7 +1,7 @@
 def cal(m, n, x, y):
     year = x  # x부터 시작
     while year <= m * n:  # 모든 가능한 해에 대해 반복
-        if (year - 1) % m + 1 == x and (year - 1) % n + 1 == y:
+        if (year - 1) % n + 1 == y:
             return year
         year += m
     return -1
