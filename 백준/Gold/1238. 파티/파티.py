@@ -2,21 +2,26 @@ import heapq
 import sys
 
 input = sys.stdin.readline
+import heapq
 
 def dijk(start):
-    heap_data = []
-    heapq.heappush(heap_data, (0, start))
+    my_heap = []
+    heapq.heappush(my_heap, (0, start))
     dis[start][start] = 0
-    while heap_data:
-        dist, now = heapq.heappop(heap_data)
-        if dis[start][now] < dist:
+    while my_heap:
+        weight, node = heapq.heappop(my_heap)
+
+        # 기존 비용이 클 때만, 해당 노드로 가는 via를 고려하겠다.
+        if dis[start][node] < weight:
             continue
+
+        # 모든 노드에 대해서 검사
         for i in range(1, n+1):
-            if my_graph[now][i] != -1:
-                cost = dist + my_graph[now][i]
-                if cost < dis[start][i]:
-                    dis[start][i] = cost
-                    heapq.heappush(heap_data, (cost, i))
+            # 갈 수 있는 노드라면 (간선이 존재)
+            if my_graph[node][i] != -1:
+                if my_graph[node][i] + weight < dis[start][i]:
+                    dis[start][i] = my_graph[node][i] + weight
+                    heapq.heappush(my_heap, (my_graph[node][i] + weight, i))
 
 n, m, x = map(int, input().rstrip().split())
 
