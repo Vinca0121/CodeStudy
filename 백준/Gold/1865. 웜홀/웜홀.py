@@ -3,6 +3,7 @@ import sys
 input = sys.stdin.readline
 t = int(input().rstrip())
 
+
 def bellman():
     cycle = False
     for i in range(n):
@@ -11,7 +12,9 @@ def bellman():
                 dis[en] = dis[sn] + weight
                 if i == n - 1:
                     cycle = True
+
     return cycle
+
 
 for _ in range(t):
     n, m, w = map(int, input().rstrip().split())
