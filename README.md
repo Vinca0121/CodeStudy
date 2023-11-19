@@ -1,3 +1,3 @@
 +# CodeStudy
 #### with Baekjoon
-#### slog. keep going 
+#### slog. keep going!!
